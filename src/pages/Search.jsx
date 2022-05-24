@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
+import Albums from '../components/Albums';
 
 export default class Search extends Component {
   state = {
     searchQueue: '',
     isSearchButtonDisabled: true,
+    loading: false,
+    searchResult: {
+      searchedArtist: '',
+      albumsReturned: [],
+    },
   };
 
-  handleSearchButton = () => {
-
+  handleSearchButton = async () => {
+    const { searchQueue: currentSearch } = this.state;
+    this.setState(({ searchResult }) => ({
+      loading: true,
+      searchResult: { ...searchResult, searchedArtist: currentSearch },
+    }));
+    const albumsList = await searchAlbumsAPI(currentSearch);
+    this.setState(({ searchResult }) => ({
+      loading: false,
+      searchResult: { ...searchResult, albumsReturned: [...albumsList] },
+      searchQueue: '',
+    }));
   }
 
   verifySearchQueue = () => {
@@ -31,6 +49,11 @@ export default class Search extends Component {
       state: {
         searchQueue,
         isSearchButtonDisabled,
+        loading,
+        searchResult: {
+          searchedArtist,
+          albumsReturned,
+        },
       },
       handleInputChange,
       handleSearchButton,
@@ -53,6 +76,11 @@ export default class Search extends Component {
         >
           Pesquisar
         </button>
+        <Albums
+          searchedArtist={ searchedArtist }
+          albumsReturned={ albumsReturned }
+        />
+        { loading && <Loading /> }
       </div>
     );
   }
