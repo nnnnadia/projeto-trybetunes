@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 export default class MusicCard extends Component {
   state = {
     isFavorite: false,
-    favLoading: false,
+    favLoading: true,
   };
+
+  async componentDidMount() {
+    const { trackObj: { trackId } } = this.props;
+    const favTracks = await getFavoriteSongs();
+    const isFavorite = favTracks.some((track) => track.trackId === trackId);
+    if (isFavorite) this.setState({ isFavorite: true });
+    this.setState({ favLoading: false });
+  }
 
   handleInputChange = async ({ target }) => {
     this.setState({ favLoading: true });
