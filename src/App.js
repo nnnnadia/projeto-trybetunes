@@ -7,12 +7,12 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
+import './css/App.css';
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <p>TrybeTunes</p>
         <Switch>
           <Route path="/search" component={ Search } />
           <Route path="/album/:id" component={ Album } />
