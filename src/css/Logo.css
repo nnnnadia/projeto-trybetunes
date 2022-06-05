@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;800&display=swap') ;
+
+.logo {
+  width: fit-content;
+}
+
+.white-logo {
+  color: white;
+}
+
+.trybe {
+  font-family: Work Sans , sans-serif;
+  font-size: 1.5em;
+  font-weight: 800;
+  margin: 0;
+}
+
+.tunes {
+  flex-grow: 2;
+  font-family: Work Sans , sans-serif;
+  font-size: 1.8em;
+  font-weight: 200;
+  margin: 0;
+}
+
+.headphones {
+  color: #0c9;
+  font-size: 2em;
+}
