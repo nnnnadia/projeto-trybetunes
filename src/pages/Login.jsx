@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import Logo from '../components/Logo';
 
 export default class Login extends Component {
   state = {
@@ -58,24 +59,26 @@ export default class Login extends Component {
               <Loading />
             )
             : (
-              <>
-                <h2>Login</h2>
-                <input
-                  type="text"
-                  name="name"
-                  value={ name }
-                  onChange={ handleInputChange }
-                  data-testid="login-name-input"
-                />
-                <button
-                  type="button"
-                  onClick={ handleLoginButton }
-                  disabled={ isLoginButtonDisabled }
-                  data-testid="login-submit-button"
-                >
-                  Entrar
-                </button>
-              </>
+              <div className="container-column">
+                <Logo />
+                <form>
+                  <input
+                    type="text"
+                    name="name"
+                    value={ name }
+                    onChange={ handleInputChange }
+                    data-testid="login-name-input"
+                  />
+                  <button
+                    type="button"
+                    onClick={ handleLoginButton }
+                    disabled={ isLoginButtonDisabled }
+                    data-testid="login-submit-button"
+                  >
+                    Entrar
+                  </button>
+                </form>
+              </div>
             )
         }
       </div>

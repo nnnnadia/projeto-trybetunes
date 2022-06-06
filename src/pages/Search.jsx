@@ -60,7 +60,7 @@ export default class Search extends Component {
     } = this;
     return (
       <div data-testid="page-search">
-        <Header />
+        <Header tab="search" />
         <input
           type="text"
           name="searchQueue"

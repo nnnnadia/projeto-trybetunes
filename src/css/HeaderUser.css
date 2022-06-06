@@ -1,0 +1,16 @@
+.user-box {
+  background-color: white;
+  border-radius: 30px;
+  height: fit-content;
+  padding: 0.2em;
+}
+
+.user-name {
+  color: #033;
+  margin: 0 1.5em;
+}
+
+.user-circle {
+  color: #0c9;
+  font-size: 1.8em;
+}

@@ -24,7 +24,7 @@ export default class Album extends Component {
     const { loading, albumInfo } = this.state;
     return (
       <div data-testid="page-album">
-        <Header />
+        <Header tab="search" />
         { loading
           ? <Loading />
           : (

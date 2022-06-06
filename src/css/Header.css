@@ -1,0 +1,40 @@
+.top-header-box {
+  background-color: #033;
+  padding: 0.5em 2em;
+}
+
+.bot-header-box {
+  margin: 0;
+  padding: 0;
+}
+
+.bot-header-box li {
+  flex-grow: 1;
+  font-size: 1.1em;
+  font-weight: bold;
+  list-style: none;
+  padding: 1em;
+  text-align: center;
+}
+
+.bot-header-box li a {
+  text-decoration: none;
+}
+
+.tab {
+  background-color: #f0f0f0;
+  color: #0c9;
+}
+
+.tab a {
+  color: #0c9;
+}
+
+.tab-on {
+  background-color: #099;
+  color: white;
+}
+
+.tab-on a {
+  color: white;
+}
