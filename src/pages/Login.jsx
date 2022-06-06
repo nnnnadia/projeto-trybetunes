@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import Logo from '../components/Logo';
+import '../css/Login.css';
 
 export default class Login extends Component {
   state = {
@@ -59,9 +60,9 @@ export default class Login extends Component {
               <Loading />
             )
             : (
-              <div className="container-column">
+              <div className="login-box container-column ai-center">
                 <Logo />
-                <form>
+                <form className="search-box container-column">
                   <input
                     type="text"
                     name="name"
@@ -73,6 +74,7 @@ export default class Login extends Component {
                     type="button"
                     onClick={ handleLoginButton }
                     disabled={ isLoginButtonDisabled }
+                    className={ isLoginButtonDisabled ? 'button-disabled' : undefined }
                     data-testid="login-submit-button"
                   >
                     Entrar

@@ -15,10 +15,18 @@
   align-items: center;
 }
 
+.ai-stretch {
+  align-items: stretch;
+}
+
 .jc-center {
   justify-content: center;
 }
 
 .jc-spacebetween {
   justify-content: space-between;
+}
+
+.jc-evenly {
+  justify-content: space-evenly;
 }

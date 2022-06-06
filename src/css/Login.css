@@ -1,0 +1,31 @@
+.login-box {
+  background-color: #f0f0f0;
+  height: 100vh;
+  justify-content: center;
+}
+
+.search-box {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgb(123, 123, 123);
+  margin-top: 2em;
+  padding: 3em;
+}
+
+.search-box input {
+  margin-bottom: 1em;
+  padding: 0.2em;
+}
+
+.search-box button {
+  background-color: #00c;
+  border: 2px solid #00c;
+  border-radius: 3px;
+  color: white;
+  padding: 0.2em;
+}
+
+.search-box .button-disabled {
+  background-color: rgb(122, 122, 122);
+  border: 2px solid rgb(122, 122, 122);
+}
