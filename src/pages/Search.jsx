@@ -12,7 +12,7 @@ export default class Search extends Component {
     loading: false,
     searchResult: {
       searchedArtist: '',
-      albumsReturned: [],
+      albumsReturned: undefined,
     },
   };
 
@@ -79,11 +79,12 @@ export default class Search extends Component {
             Pesquisar
           </button>
         </form>
-        <Albums
-          searchedArtist={ searchedArtist }
-          albumsReturned={ albumsReturned }
-        />
-        { loading && <Loading /> }
+        { loading
+          ? <h3 className="center-text"><Loading /></h3>
+          : <Albums
+              searchedArtist={ searchedArtist }
+              albumsReturned={ albumsReturned }
+            />}
       </div>
     );
   }

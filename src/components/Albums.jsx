@@ -7,7 +7,7 @@ export default class Albums extends Component {
     const { searchedArtist, albumsReturned } = this.props;
     if (searchedArtist === '') return null;
     return (
-      <div>
+      <>
         { albumsReturned.length > 0 ? (
           <div>
             <h3>
@@ -18,11 +18,11 @@ export default class Albums extends Component {
             ))}
           </div>
         ) : (
-          <h3>
+          <h3 className="center-text">
             Nenhum álbum foi encontrado
           </h3>
         )}
-      </div>
+      </>
     );
   }
 }

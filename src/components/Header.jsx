@@ -73,5 +73,5 @@ export default class Header extends Component {
 }
 
 Header.propTypes = {
-  tab: PropTypes.string.isRequired,
+  tab: PropTypes.oneOf(['search', 'favorites', 'profile']).isRequired,
 };
