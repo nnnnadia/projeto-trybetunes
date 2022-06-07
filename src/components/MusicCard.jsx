@@ -13,18 +13,21 @@ export default class MusicCard extends Component {
     const { trackObj: { trackId } } = this.props;
     const favTracks = await getFavoriteSongs();
     const isFavorite = favTracks.some((track) => track.trackId === trackId);
-    if (isFavorite) this.setState({ isFavorite: true });
-    this.setState({ favLoading: false });
+    this.setState({
+      isFavorite,
+      favLoading: false,
+    });
   }
 
   handleInputChange = async ({ target }) => {
     this.setState({ favLoading: true });
     const { checked, name } = target;
-    const { trackObj } = this.props;
+    const { trackObj, handleRemoveFavorite } = this.props;
     if (checked) {
       await addSong(trackObj);
     } else {
       await removeSong(trackObj);
+      handleRemoveFavorite();
     }
     this.setState({
       [name]: checked,
@@ -62,6 +65,7 @@ export default class MusicCard extends Component {
             <label htmlFor="isFavorite">
               <input
                 type="checkbox"
+                id="isFavorite"
                 name="isFavorite"
                 checked={ isFavorite }
                 onChange={ handleInputChange }
@@ -81,4 +85,9 @@ MusicCard.propTypes = {
     trackName: PropTypes.string,
     previewUrl: PropTypes.string,
   }).isRequired,
+  handleRemoveFavorite: PropTypes.func,
+};
+
+MusicCard.defaultProps = {
+  handleRemoveFavorite: () => null,
 };
