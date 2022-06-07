@@ -81,10 +81,11 @@ export default class Search extends Component {
         </form>
         { loading
           ? <h3 className="center-text"><Loading /></h3>
-          : <Albums
+          : (
+            <Albums
               searchedArtist={ searchedArtist }
               albumsReturned={ albumsReturned }
-            />}
+            />)}
       </div>
     );
   }

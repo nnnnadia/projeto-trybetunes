@@ -7,22 +7,22 @@ export default class Albums extends Component {
     const { searchedArtist, albumsReturned } = this.props;
     if (searchedArtist === '') return null;
     return (
-      <>
+      <div>
         { albumsReturned.length > 0 ? (
-          <div>
+          <>
             <h3>
               {`Resultado de álbuns de: ${searchedArtist}`}
             </h3>
             { albumsReturned.map((album) => (
               <AlbumCard key={ album.collectionId } album={ album } />
             ))}
-          </div>
+          </>
         ) : (
           <h3 className="center-text">
             Nenhum álbum foi encontrado
           </h3>
         )}
-      </>
+      </div>
     );
   }
 }

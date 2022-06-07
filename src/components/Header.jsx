@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
-import Loading from './Loading';
 import Logo from './Logo';
 import '../css/Header.css';
 import HeaderUser from './HeaderUser';
@@ -43,7 +42,7 @@ export default class Header extends Component {
           <ul className="bot-header-box container-row">
             <li className={ tab === 'search' ? 'tab-on' : 'tab' }>
               {loading
-                ? <Loading />
+                ? 'Pesquisa'
                 : (
                   <Link to="/search" data-testid="link-to-search">
                     Pesquisa
@@ -51,7 +50,7 @@ export default class Header extends Component {
             </li>
             <li className={ tab === 'favorites' ? 'tab-on' : 'tab' }>
               {loading
-                ? <Loading />
+                ? 'Favoritas'
                 : (
                   <Link to="/favorites" data-testid="link-to-favorites">
                     Favoritas
@@ -59,7 +58,7 @@ export default class Header extends Component {
             </li>
             <li className={ tab === 'profile' ? 'tab-on' : 'tab' }>
               {loading
-                ? <Loading />
+                ? 'Perfil'
                 : (
                   <Link to="/profile" data-testid="link-to-profile">
                     Perfil
