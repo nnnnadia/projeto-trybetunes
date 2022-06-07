@@ -3,6 +3,7 @@ import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import Albums from '../components/Albums';
+import '../css/Search.css';
 
 export default class Search extends Component {
   state = {
@@ -61,21 +62,23 @@ export default class Search extends Component {
     return (
       <div data-testid="page-search">
         <Header tab="search" />
-        <input
-          type="text"
-          name="searchQueue"
-          value={ searchQueue }
-          onChange={ handleInputChange }
-          data-testid="search-artist-input"
-        />
-        <button
-          type="button"
-          onClick={ handleSearchButton }
-          disabled={ isSearchButtonDisabled }
-          data-testid="search-artist-button"
-        >
-          Pesquisar
-        </button>
+        <form className="search-box container-row jc-center">
+          <input
+            type="text"
+            name="searchQueue"
+            value={ searchQueue }
+            onChange={ handleInputChange }
+            data-testid="search-artist-input"
+          />
+          <button
+            type="button"
+            onClick={ handleSearchButton }
+            disabled={ isSearchButtonDisabled }
+            data-testid="search-artist-button"
+          >
+            Pesquisar
+          </button>
+        </form>
         <Albums
           searchedArtist={ searchedArtist }
           albumsReturned={ albumsReturned }

@@ -53,16 +53,18 @@ export default class Login extends Component {
       return <Redirect to="/search" />;
     }
     return (
-      <div data-testid="page-login">
+      <div className="login-box container-column ai-center" data-testid="page-login">
         {
           loading
             ? (
-              <Loading />
+              <h3 className="login-loading">
+                <Loading />
+              </h3>
             )
             : (
-              <div className="login-box container-column ai-center">
+              <>
                 <Logo />
-                <form className="search-box container-column">
+                <form className="login-form-box container-column">
                   <input
                     type="text"
                     name="name"
@@ -80,7 +82,7 @@ export default class Login extends Component {
                     Entrar
                   </button>
                 </form>
-              </div>
+              </>
             )
         }
       </div>

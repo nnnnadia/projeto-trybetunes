@@ -4,7 +4,11 @@
   justify-content: center;
 }
 
-.search-box {
+.login-loading {
+  font-size: 5vw;
+}
+
+.login-form-box {
   background-color: white;
   border-radius: 10px;
   box-shadow: 4px 4px 4px rgb(123, 123, 123);
@@ -12,12 +16,12 @@
   padding: 3em;
 }
 
-.search-box input {
+.login-form-box input {
   margin-bottom: 1em;
   padding: 0.2em;
 }
 
-.search-box button {
+.login-form-box button {
   background-color: #00c;
   border: 2px solid #00c;
   border-radius: 3px;
@@ -25,7 +29,7 @@
   padding: 0.2em;
 }
 
-.search-box .button-disabled {
+.login-form-box .button-disabled {
   background-color: rgb(122, 122, 122);
   border: 2px solid rgb(122, 122, 122);
 }
