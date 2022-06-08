@@ -25,14 +25,18 @@ export default class MusicCard extends Component {
     const { trackObj, handleRemoveFavorite } = this.props;
     if (checked) {
       await addSong(trackObj);
+      this.setState({
+        [name]: checked,
+        favLoading: false,
+      });
     } else {
       await removeSong(trackObj);
-      handleRemoveFavorite();
+      this.setState({
+        [name]: checked,
+        favLoading: false,
+      });
+      handleRemoveFavorite(trackObj.trackId);
     }
-    this.setState({
-      [name]: checked,
-      favLoading: false,
-    });
   }
 
   render() {
@@ -81,7 +85,7 @@ export default class MusicCard extends Component {
 
 MusicCard.propTypes = {
   trackObj: PropTypes.shape({
-    trackId: PropTypes.number,
+    trackId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     trackName: PropTypes.string,
     previewUrl: PropTypes.string,
   }).isRequired,
@@ -89,5 +93,5 @@ MusicCard.propTypes = {
 };
 
 MusicCard.defaultProps = {
-  handleRemoveFavorite: () => null,
+  handleRemoveFavorite: () => {},
 };

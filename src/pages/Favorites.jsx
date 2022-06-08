@@ -10,16 +10,19 @@ export default class Favorites extends Component {
     favoriteSongs: [],
   };
 
-  componentDidMount() {
-    this.updateFavoriteSongs();
-  }
-
-  updateFavoriteSongs = async () => {
+  async componentDidMount() {
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
       loading: false,
       favoriteSongs,
     });
+  }
+
+  updateFavoriteSongs = (trackId) => {
+    const { favoriteSongs } = this.state;
+    const updatedFavoriteSongs = favoriteSongs
+      .filter((track) => track.trackId !== trackId);
+    this.setState({ favoriteSongs: updatedFavoriteSongs });
   }
 
   render() {
