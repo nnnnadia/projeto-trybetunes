@@ -30,3 +30,10 @@
 .jc-evenly {
   justify-content: space-evenly;
 }
+
+.center-text {
+  color: #033;
+  font-size: 3em;
+  margin: 3em auto;
+  text-align: center;
+}
