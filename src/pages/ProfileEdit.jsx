@@ -6,19 +6,16 @@ import { getUser, updateUser } from '../services/userAPI';
 import { ReactComponent as PersonIcon } from '../assets/icons/person-circle.svg';
 
 export default class ProfileEdit extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      userInfo: {
-        description: '',
-        email: '',
-        image: '',
-        name: '',
-      },
-      isSaveButtonDisabled: true,
-    };
-  }
+  state = {
+    loading: true,
+    userInfo: {
+      description: '',
+      email: '',
+      image: '',
+      name: '',
+    },
+    isSaveButtonDisabled: true,
+  };
 
   async componentDidMount() {
     const userInfo = await getUser();
